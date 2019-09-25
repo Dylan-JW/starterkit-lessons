@@ -143,7 +143,7 @@ You can specify running conditions of your jobs in the submit file. The system f
 
 A complete list of ClassAd attributes can be found [in the documentation](http://research.cs.wisc.edu/htcondor/manual/v8.8/ClassAdAttributes.html#x167-1231000A), but in this part a few particularly useful ones are highlighted. Note that, by using these, you are restricting how your job can run, which means that it will likely take longer to run. You should use these with care, and speak with the Batch support team for advice if you're not sure.
 
-* `OpSysAndVer`: specifies the operating system (and version) that a machine is using. Currently, some of the grid resources are using SLC6, while others have been migrated to CentOS7. For example, if you wanted to ensure that your program runs using CentOS7, you would need to add `requirements = (OpSysAndVer =?= "CentOS7")` to your submit file.
+* `OpSysAndVer`: specifies the operating system (and version) that a machine is using. Currently, some of the grid resources are using SLC6, while others have been migrated to CentOS7. For example, if you wanted to ensure that your program runs using CentOS7, you would need to add `requirements = (OpSysAndVer =?= "CentOS7")` to your submit file; or for SLC6, use `OpSysAndVer =?= "SLCern6"`.
 
 * `ClockMin` and `ClockDay`: the time of day (in minutes since midnight) and day of the week respectively. These can be used to give your jobs a preference for running outside of peak times - for example, you could use `rank = ( (ClockDay == 0) || (ClockDay == 6) ) && (ClockMin <= 480)` to encourage your job to run between midnight and 8am on weekends.
 
